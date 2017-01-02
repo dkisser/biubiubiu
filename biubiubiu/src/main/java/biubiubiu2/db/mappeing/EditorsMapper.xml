@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="biubiubiu2.db.dao.EditorsMapper" >
+  
+  <select id="findAllEditors" resultType="biubiubiu2.db.pojo.Editors">
+  	select * from editors
+  </select>
+  <delete id="deleteByEditorId">
+  	delete from user where user.id=16
+  </delete>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="biubiubiu2.db.dao.UsersMapper">
+	<!-- <sql id="UpdateUser"> <if test="id!=null and id!=0"> <if test="name!=null 
+		and name!=''"> name=#{name} </if> <if test="password!=null and password!=''"> 
+		password=#{password} </if> <if test="email!=null and email!=''"> email=#{email} 
+		</if> <if test="phone!=null and password!=0"> phone=#{phone} </if> </if> 
+		</sql> -->
+	<select id="findAllUsers" resultType="biubiubiu2.db.pojo.Users">
+		select * from users
+	</select>
+	<delete id="deleteOneUserById" parameterType="java.lang.Integer">
+		delete from users
+		where id=#{id}
+	</delete>
+
+	<update id="updateOneUser" parameterType="biubiubiu2.db.pojo.Users">
+		update users
+		set
+		name=#{name},password=#{password},email=#{email},phone=#{phone}
+		where
+		id=#{id}
+	</update>
+	<select id="findOneUserById" parameterType="java.lang.Integer"
+		resultType="biubiubiu2.db.pojo.Users">
+		select * from users where id=#{id}
+	</select>
+	<insert id="insertOneUser" parameterType="biubiubiu2.db.pojo.Users">
+		insert into users(name,password,email,phone)
+		values(#{name},#{password},#{email},#{phone})
+	</insert>
+	<select id="findOneUserByName" parameterType="biubiubiu2.db.pojo.Users"
+		resultType="biubiubiu2.db.pojo.Users">
+		  select * from users where name=#{name}
+
+	</select>
+</mapper>
